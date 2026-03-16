@@ -7,16 +7,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-<script>  fetch("https://script.google.com/macros/s/AKfycbxD_ng4JANa5YNkuHQ-Rjzqt1Ek1C46I5XMRzVYL_ZJlu8gClqJ7-D6fr6mtbWlTKzS/exec", {
-method: "POST",
-body: JSON.stringify({
-studentName: document.getElementById("name").value,
-fatherName: document.getElementById("father").value,
-mobile: document.getElementById("mobile").value,
-school: document.getElementById("school").value
-})
-})
-  </script>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap');
 *{box-sizing:border-box;margin:0;padding:0}
@@ -498,9 +488,7 @@ tr:hover td{background:var(--gray-50)}
             <li>I consent to UDISE+ data entry by the school.</li>
           </ol>
         </div>
-        <button type="button" onclick="submitForm()">
-Submit Admission Form
-</button>
+        <button type="submit" class="submit-btn" id="submitBtn">🚀 Submit Application — Generate Admission ID</button>
       </form>
     </div>
   </div>
@@ -815,25 +803,6 @@ function editRecord(){
 }
 
 // ═══ SUBMIT ═══
-  <script>
-function submitForm() {
-
-fetch("https://script.google.com/macros/s/AKfycbwRSELZ8D1zFZb0zhRKoCti0P97HA2lxaSM_dvp2RqvkUxFaBPbomjL4pllvGTOKepE/exec", {
-  method: "POST",
-  body: JSON.stringify({
-    studentName: document.getElementById("name").value,
-    fatherName: document.getElementById("father").value,
-    mobile: document.getElementById("mobile").value,
-    school: document.getElementById("school").value
-  })
-})
-.then(res => res.text())
-.then(data => {
-  alert("Form Submitted Successfully");
-});
-
-}
-
 function submitForm(e){
   e.preventDefault();
   // Teacher name required
@@ -885,7 +854,6 @@ function spawnPetals(){const c=document.getElementById('petals');c.innerHTML='';
 
 function resetForm(){
   document.getElementById('admissionForm').reset();
-  </script>
   // Reset teacher
   document.getElementById('teacherSelect').value='';document.getElementById('teacherCustom').value='';
   currentTeacherName='';document.getElementById('teacher-selected-badge').style.display='none';
