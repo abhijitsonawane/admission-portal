@@ -813,6 +813,25 @@ function editRecord(){
 }
 
 // ═══ SUBMIT ═══
+  <script>
+function submitForm() {
+
+fetch("https://script.google.com/macros/s/AKfycbwRSELZ8D1zFZb0zhRKoCti0P97HA2lxaSM_dvp2RqvkUxFaBPbomjL4pllvGTOKepE/exec", {
+  method: "POST",
+  body: JSON.stringify({
+    studentName: document.getElementById("name").value,
+    fatherName: document.getElementById("father").value,
+    mobile: document.getElementById("mobile").value,
+    school: document.getElementById("school").value
+  })
+})
+.then(res => res.text())
+.then(data => {
+  alert("Form Submitted Successfully");
+});
+
+}
+
 function submitForm(e){
   e.preventDefault();
   // Teacher name required
@@ -864,6 +883,7 @@ function spawnPetals(){const c=document.getElementById('petals');c.innerHTML='';
 
 function resetForm(){
   document.getElementById('admissionForm').reset();
+  </script>
   // Reset teacher
   document.getElementById('teacherSelect').value='';document.getElementById('teacherCustom').value='';
   currentTeacherName='';document.getElementById('teacher-selected-badge').style.display='none';
